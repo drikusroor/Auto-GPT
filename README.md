@@ -518,6 +518,8 @@ The tests are located in the `tests` directory. The tests are written using the 
 
 ### Run unit tests
 
+Unit tests are located in the `tests/unit` directory. They are used to test individual functions and methods and should not require any external dependencies (e.g. the OpenAI API, other third-party services). They are run automatically in the CI.
+
 To run tests, run the following command:
 
 ```bash
@@ -531,6 +533,8 @@ coverage run -m unittest discover -s tests/unit
 ```
 
 ### Run integration tests
+
+Integration tests are located in the `tests/integration` directory. They are used to test the integration of the application with external services (e.g. the OpenAI API, other third-party services). They are not run automatically in the CI and should be run manually.
 
 To run tests, run the following command:
 
