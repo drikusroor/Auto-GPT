@@ -514,16 +514,34 @@ We look forward to connecting with you and hearing your thoughts, ideas, and exp
 
 ## Run tests
 
+The tests are located in the `tests` directory. The tests are written using the [unittest](https://docs.python.org/3/library/unittest.html) module. Please use the naming convention `test_*.py` for test files as this is the default pattern used by the `unittest` module. Naming them `*_test.py` will cause them to be skipped in the CI.
+
+### Run unit tests
+
 To run tests, run the following command:
 
 ```bash
-python -m unittest discover -s tests
+python -m unittest discover -s tests/unit
 ```
 
 To run tests and see coverage, run the following command:
 
 ```bash
-coverage run -m unittest discover -s tests
+coverage run -m unittest discover -s tests/unit
+```
+
+### Run integration tests
+
+To run tests, run the following command:
+
+```bash
+python -m unittest discover -s tests/integration
+```
+
+To run tests and see coverage, run the following command:
+
+```bash
+coverage run -m unittest discover -s tests/integration
 ```
 
 ## Run linter
