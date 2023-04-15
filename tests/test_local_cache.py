@@ -1,6 +1,6 @@
-import os
-import sys
 import unittest
+
+import numpy as np
 
 from autogpt.memory.local import LocalCache
 
@@ -30,7 +30,11 @@ class TestLocalCache(unittest.TestCase):
 
     def test_clear(self):
         self.cache.clear()
-        self.assertEqual(self.cache.data, [""])
+        self.assertEqual(self.cache.data.texts, [])
+        self.assertIsInstance(self.cache.data.embeddings, np.ndarray)
+        self.assertEqual(self.cache.data.embeddings.shape, (0, 1536))
+        self.assertEqual(self.cache.data.embeddings.dtype, np.float32)
+        self.assertTrue(np.all(self.cache.data.embeddings == 0))
 
     def test_get(self):
         text = "Sample text"
@@ -50,7 +54,7 @@ class TestLocalCache(unittest.TestCase):
         text = "Sample text"
         self.cache.add(text)
         stats = self.cache.get_stats()
-        self.assertEqual(stats, (1, self.cache.data.embeddings.shape))
+        self.assertEqual(stats, (4, self.cache.data.embeddings.shape))
 
 
 if __name__ == "__main__":
