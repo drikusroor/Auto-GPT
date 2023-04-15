@@ -1,6 +1,5 @@
 import unittest
 
-import tests.context
 from autogpt.json_fixes.parsing import fix_and_parse_json
 
 
