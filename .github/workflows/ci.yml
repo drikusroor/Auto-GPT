@@ -34,9 +34,9 @@ jobs:
       continue-on-error: false
       run: flake8 autogpt/ tests/ --select E303,W293,W291,W292,E305,E231,E302
 
-    - name: Run unittest tests with coverage
+    - name: Run unit tests with coverage
       run: |
-        coverage run --source=autogpt -m unittest discover -s tests
+        coverage run --source=autogpt -m unittest discover -s tests/unit
 
     - name: Generate coverage report
       run: |
