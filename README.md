@@ -517,13 +517,13 @@ We look forward to connecting with you and hearing your thoughts, ideas, and exp
 To run tests, run the following command:
 
 ```bash
-python -m unittest discover tests
+python -m unittest discover -s tests
 ```
 
 To run tests and see coverage, run the following command:
 
 ```bash
-coverage run -m unittest discover tests
+coverage run -m unittest discover -s tests
 ```
 
 ## Run linter
